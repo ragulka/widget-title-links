@@ -1,4 +1,5 @@
 === Widget Title Links ===
+Contributors: ragulka
 Tags: widgets, links
 Requires at least: 3.0
 Tested up to: 3.5
@@ -25,7 +26,7 @@ Works with all widgets!
 
 = This plugin does not work with Widget X?! =
 
-The widget probably does not use the `widget_title` filter.
+The widget probably does not use the `widget_title` filter. Widget Title Links uses this filter to add the links to titles and if it's not used, there is no way to add link to the title.
 
 == Screenshots ==
 

@@ -5,7 +5,7 @@
 # main config
 PLUGINSLUG="widget-title-links"
 CURRENTDIR=`pwd`
-MAINFILE="withet-title-links.php" # this should be the name of your main php file in the wordpress plugin
+MAINFILE="widget-title-links.php" # this should be the name of your main php file in the wordpress plugin
 
 # git config
 GITPATH="$CURRENTDIR/" # this file should be in the base of your git repository

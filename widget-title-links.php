@@ -3,7 +3,7 @@
 Plugin Name: Widget Title Links
 Plugin URI: https://github.com/ragulka/widget-title-links
 Description: Add links to Wordpress widget titles.
-Version: 1.1
+Version: 1.1.1
 Author: Illimar Tambek
 Author URI: https://github.com/ragulka
 License: GPL2
@@ -85,18 +85,23 @@ class Widget_Title_Links {
    * @uses add_filter() 'dynamic_sidebar_params'
    */
   public function add_link_to_widget_title( $params ) {
+    if (is_admin())
+      return $params;
+
     global $wp_registered_widgets;
     $id = $params[0]['widget_id'];
 
-    // Get settuings for all widgets of this type
-    $settings = $wp_registered_widgets[$id]['callback'][0]->get_settings();
+    if (isset($wp_registered_widgets[$id]['callback'][0])) {
+      // Get settuings for all widgets of this type
+      $settings = $wp_registered_widgets[$id]['callback'][0]->get_settings();
 
-    // Get settings for this instance of the widget
-    $instance = $settings[substr( $id, strrpos( $id, '-' ) + 1 )];
+      // Get settings for this instance of the widget
+      $instance = $settings[substr( $id, strrpos( $id, '-' ) + 1 )];
 
-    if ( $instance['title_link'] ) {
-      $params[0]['before_title'] = $params[0]['before_title'] . '<a href="' . $instance['title_link'] . '">';
-      $params[0]['after_title']  = '</a>' . $params[0]['after_title'];
+      if ( $instance['title_link'] ) {
+        $params[0]['before_title'] = $params[0]['before_title'] . '<a href="' . $instance['title_link'] . '">';
+        $params[0]['after_title']  = '</a>' . $params[0]['after_title'];
+      }
     }
 
     return $params;

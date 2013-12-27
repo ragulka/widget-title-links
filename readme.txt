@@ -2,8 +2,8 @@
 Contributors: ragulka
 Tags: widgets, links
 Requires at least: 3.0
-Tested up to: 3.5
-Stable tag: 1.0
+Tested up to: 3.8
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -24,9 +24,7 @@ Works with all widgets!
 
 == Frequently Asked Questions ==
 
-= This plugin does not work with Widget X?! =
-
-The widget probably does not use the `widget_title` filter. Widget Title Links uses this filter to add the links to titles and if it's not used, there is no way to add link to the title.
+None at the moment
 
 == Screenshots ==
 
@@ -34,6 +32,11 @@ The widget probably does not use the `widget_title` filter. Widget Title Links u
 2. Widget title is now clickable in the sidebar
 
 == Changelog ==
+
+= 1.1 =
+* Fixed "The plugin does not have a valid header" issue
+* Refactored the plugin onto a class
+* Uses dynamic_sidebar_params filter instead of wiget_title filter. This will hopefully make this plugin compatible with all widgets.
 
 = 1.0 =
 * Initial release

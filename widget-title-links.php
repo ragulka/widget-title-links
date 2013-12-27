@@ -33,7 +33,7 @@ class Widget_Title_Links {
     
     add_filter( 'widget_form_callback', array( $this, 'register_widget_title_link_field'), 10, 2 );
     add_filter( 'widget_update_callback', array( $this, 'widget_update_extend'), 10, 2 );
-    add_filter( 'widget_title', array( $this, 'add_link_to_widget_title'), 99, 2 );
+    add_filter( 'dynamic_sidebar_params', array( $this, 'add_link_to_widget_title'), 99, 2 );
     
   }
 
@@ -82,13 +82,24 @@ class Widget_Title_Links {
    * in widget settings in Appearance->Widgets
    *
    * @since 1.o
-   * @uses add_filter() 'widget_title'
+   * @uses add_filter() 'dynamic_sidebar_params'
    */
-  public function add_link_to_widget_title( $title, $instance = null ) {
-    if (!empty($title) && !empty($instance['title_link'])) {
-      $title = '<a href="' . $instance['title_link'] . '">' . $title . '</a>';
+  public function add_link_to_widget_title( $params ) {
+    global $wp_registered_widgets;
+    $id = $params[0]['widget_id'];
+
+    // Get settuings for all widgets of this type
+    $settings = $wp_registered_widgets[$id]['callback'][0]->get_settings();
+
+    // Get settings for this instance of the widget
+    $instance = $settings[substr( $id, strrpos( $id, '-' ) + 1 )];
+
+    if ( $instance['title_link'] ) {
+      $params[0]['before_title'] = $params[0]['before_title'] . '<a href="' . $instance['title_link'] . '">';
+      $params[0]['after_title']  = '</a>' . $params[0]['after_title'];
     }
-    return $title;
+
+    return $params;
   }
 }
 

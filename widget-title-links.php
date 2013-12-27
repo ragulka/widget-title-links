@@ -7,9 +7,8 @@ Version: 1.0
 Author: Illimar Tambek
 Author URI: https://github.com/ragulka
 License: GPL2
-*/
 
-/*  Copyright 2012  Illimar Tambek  (email : illimar.tambek@gmail.com)
+    Copyright 2012  Illimar Tambek  (email : illimar.tambek@gmail.com)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License, version 2, as 
@@ -78,6 +77,9 @@ add_filter( 'widget_update_callback', 'wtl_widget_update_extend', 10, 2 );
  * @uses add_filter() 'widget_title'
  */
 function wtl_add_link_to_widget_title( $title, $instance = null ) {
+  var_dump($title);
+  var_dump($instance);
+  exit;
   if (!empty($title) && !empty($instance['title_link'])) {
     $title = '<a href="' . $instance['title_link'] . '">' . $title . '</a>';
   }

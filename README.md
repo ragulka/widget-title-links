@@ -18,9 +18,7 @@ Works with all widgets!
 
 == Frequently Asked Questions ==
 
-= This plugin does not work with Widget X?! =
-
-The widget probably does not use the `widget_title` filter.
+None at the moment
 
 == Screenshots ==
 
@@ -31,6 +29,11 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 2. This is the second screen shot
 
 == Changelog ==
+
+= 1.1 =
+* Fixed "The plugin does not have a valid header" issue
+* Refactored the plugin onto a class
+* Uses dynamic_sidebar_params filter instead of wiget_title filter. This will hopefully make this plugin compatible with all widgets.
 
 = 1.0 =
 * Initial release

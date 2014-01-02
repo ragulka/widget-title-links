@@ -91,7 +91,7 @@ class Widget_Title_Links {
     global $wp_registered_widgets;
     $id = $params[0]['widget_id'];
 
-    if (isset($wp_registered_widgets[$id]['callback'][0])) {
+    if (isset($wp_registered_widgets[$id]['callback'][0]) && is_object($wp_registered_widgets[$id]['callback'][0])) {
       // Get settuings for all widgets of this type
       $settings = $wp_registered_widgets[$id]['callback'][0]->get_settings();
 

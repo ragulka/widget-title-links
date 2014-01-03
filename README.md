@@ -30,6 +30,9 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 
 == Changelog ==
 
+= 1.1.2 =
+* Fixed Fatal Error bug (https://github.com/ragulka/widget-title-links/issues/3) thanks @bainternet!
+
 = 1.1.1 =
 * Fixed a last minute bug
 

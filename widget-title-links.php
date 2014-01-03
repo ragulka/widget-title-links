@@ -29,7 +29,7 @@ class Widget_Title_Links {
   public function __construct() {
     load_plugin_textdomain( 'widget-title-links', false, basename( dirname( __FILE__ ) ) . '/languages' );
 
-    add_action( 'in_widget_form', array( $this, 'add_title_link_field_to_widget_form' ), 1, 3 );
+    add_action( 'in_widget_form', array( $this, 'add_title_link_fields_to_widget_form' ), 1, 3 );
     
     add_filter( 'widget_form_callback', array( $this, 'register_widget_title_link_field'), 10, 2 );
     add_filter( 'widget_update_callback', array( $this, 'widget_update_extend'), 10, 2 );
@@ -43,11 +43,16 @@ class Widget_Title_Links {
    * @since 1.0
    * @uses add_action() 'in_widget_form'
    */
-  public function add_title_link_field_to_widget_form( $widget, $args, $instance ) {
+  public function add_title_link_fields_to_widget_form( $widget, $args, $instance ) {
   ?>
     <fieldset class="title-link-options">
       <p><label for="<?php echo $widget->get_field_id('title_link'); ?>"><?php _e('Title link <small class="description">(Example: http://google.com)</small>', 'widget-title-links'); ?></label>
       <input type="text" name="<?php echo $widget->get_field_name('title_link'); ?>" id="<?php echo $widget->get_field_id('title_link'); ?>"" class="widefat" value="<?php echo $instance['title_link']; ?>"" /></p>
+      
+      <p>
+        <input type="checkbox" class="checkbox" id="<?php echo $widget->get_field_id('title_link_target_blank'); ?>" name="<?php echo $widget->get_field_name('title_link_target_blank'); ?>"<?php checked( $instance['title_link_target_blank'] ); ?> />
+        <label for="<?php echo $widget->get_field_id('title_link_target_blank'); ?>"><?php _e( 'Open link in new window/tab', 'widget-title-links' ); ?></label>
+      </p>
     </fieldset>
   <?php
   }
@@ -61,6 +66,8 @@ class Widget_Title_Links {
   public function register_widget_title_link_field ( $instance, $widget ) {
     if ( !isset($instance['title_link']) )
       $instance['title_link'] = null;
+    if ( !isset($instance['title_link_target_blank']) )
+      $instance['title_link_target_blank'] = null;    
     return $instance;
   }
 
@@ -72,6 +79,7 @@ class Widget_Title_Links {
    */
   public function widget_update_extend ( $instance, $new_instance ) {
     $instance['title_link'] = esc_url( $new_instance['title_link'] );
+    $instance['title_link_target_blank'] = !empty($new_instance['title_link_target_blank']) ? 1 : 0;
     return $instance;
   }
 
@@ -99,7 +107,8 @@ class Widget_Title_Links {
       $instance = $settings[substr( $id, strrpos( $id, '-' ) + 1 )];
 
       if ( $instance['title_link'] ) {
-        $params[0]['before_title'] = $params[0]['before_title'] . '<a href="' . $instance['title_link'] . '">';
+        $target = $instance['title_link_target_blank'] ? ' target="_blank"' : '';
+        $params[0]['before_title'] = $params[0]['before_title'] . '<a href="' . $instance['title_link'] . '"' . $target . '>';
         $params[0]['after_title']  = '</a>' . $params[0]['after_title'];
       }
     }

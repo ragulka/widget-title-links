@@ -4,39 +4,29 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Widget Title Links 1.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/widget-title-links\n"
-"POT-Creation-Date: 2012-12-18 21:42:58+00:00\n"
+"POT-Creation-Date: 2014-01-03 23:03+0200\n"
+"PO-Revision-Date: 2014-01-03 23:08+0200\n"
+"Last-Translator: Illimar Tambek <illimar.tambek@gmail.com>\n"
+"Language-Team: \n"
+"Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2012-12-18 23:47+0200\n"
-"Last-Translator: Illimar Tambek <illimar.tambek@gmail.com>\n"
-"Language-Team: \n"
-"X-Generator: Poedit 1.5.4\n"
-"Language: et\n"
+"X-Generator: Poedit 1.6.1\n"
 
-#: widget-title-links.php:39
+#: widget-title-links.php:49
 msgid ""
 "Title link <small class=\"description\">(Example: http://google.com)</small>"
 msgstr ""
 "Pealkirja link <small class=\"description\">(Näiteks: http://google.com)</"
 "small>"
 
-#. Plugin Name of the plugin/theme
-msgid "Widget Title Links"
-msgstr "Mooduli pealkirja linkimine"
+#: widget-title-links.php:54
+msgid "Open link in new window/tab"
+msgstr "Ava viide uues aknas/vahelehel"
 
-#. Plugin URI of the plugin/theme
-msgid "https://github.com/ragulka/widget-title-links"
-msgstr ""
+#~ msgid "Widget Title Links"
+#~ msgstr "Mooduli pealkirja linkimine"
 
-#. Description of the plugin/theme
-msgid "Add links to Wordpress widget titles."
-msgstr "Lisa oma Wordpressi lehe moodulite pealkirjadele linke."
-
-#. Author of the plugin/theme
-msgid "Illimar Tambek"
-msgstr ""
-
-#. Author URI of the plugin/theme
-msgid "https://github.com/ragulka"
-msgstr ""
+#~ msgid "Add links to Wordpress widget titles."
+#~ msgstr "Lisa oma Wordpressi lehe moodulite pealkirjadele linke."

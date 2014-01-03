@@ -3,7 +3,7 @@
 Plugin Name: Widget Title Links
 Plugin URI: https://github.com/ragulka/widget-title-links
 Description: Add links to Wordpress widget titles.
-Version: 1.1.2
+Version: 1.2.0
 Author: Illimar Tambek
 Author URI: https://github.com/ragulka
 License: GPL2

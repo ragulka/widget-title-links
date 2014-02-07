@@ -2,8 +2,8 @@
 Contributors: ragulka
 Tags: widgets, links
 Requires at least: 3.0
-Tested up to: 3.8
-Stable tag: 1.2.0
+Tested up to: 3.8.1
+Stable tag: 1.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -15,6 +15,10 @@ This plugins simply adds an extra field to all widgets that lets you
 add a link to the widget's title. When the widget is displayed, the title is now clickable and links to the url you entered.
 
 Works with all widgets!
+
+= Options =
+* Open links in new tab/window
+* Wrap entire title bar in the link. Useful when you need to make the whole title bar clickable, not just the title text.
 
 == Installation ==
 
@@ -32,6 +36,9 @@ None at the moment
 2. Widget title is now clickable in the sidebar
 
 == Changelog ==
+
+= 1.3.0 =
+* Added option to wrap entire title bar inside the link
 
 = 1.2.0 =
 * Added option to open links in new window/tab

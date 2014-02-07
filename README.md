@@ -26,6 +26,9 @@ See http://wordpress.org/plugins/widget-title-links/screenshots/
 
 ###Changelog
 
+######1.3.0
+* Added option to wrap entire title bar inside the link
+
 ######1.2.0
 * Added option to open links in new window/tab
 

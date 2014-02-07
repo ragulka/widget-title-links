@@ -3,7 +3,7 @@
 Plugin Name: Widget Title Links
 Plugin URI: https://github.com/ragulka/widget-title-links
 Description: Add links to Wordpress widget titles.
-Version: 1.2.0
+Version: 1.3.0
 Author: Illimar Tambek
 Author URI: https://github.com/ragulka
 License: GPL2
@@ -53,6 +53,11 @@ class Widget_Title_Links {
         <input type="checkbox" class="checkbox" id="<?php echo $widget->get_field_id('title_link_target_blank'); ?>" name="<?php echo $widget->get_field_name('title_link_target_blank'); ?>"<?php checked( $instance['title_link_target_blank'] ); ?> />
         <label for="<?php echo $widget->get_field_id('title_link_target_blank'); ?>"><?php _e( 'Open link in new window/tab', 'widget-title-links' ); ?></label>
       </p>
+      
+      <p>
+        <input type="checkbox" class="checkbox" id="<?php echo $widget->get_field_id('title_link_wrap'); ?>" name="<?php echo $widget->get_field_name('title_link_wrap'); ?>"<?php checked( $instance['title_link_wrap'] ); ?> />
+        <label for="<?php echo $widget->get_field_id('title_link_wrap'); ?>"><?php _e( 'Make the entire title bar clickable', 'widget-title-links' ); ?></label>
+      </p>
     </fieldset>
   <?php
   }
@@ -68,6 +73,8 @@ class Widget_Title_Links {
       $instance['title_link'] = null;
     if ( !isset($instance['title_link_target_blank']) )
       $instance['title_link_target_blank'] = null;    
+    if ( !isset($instance['title_link_wrap']) )
+      $instance['title_link_wrap'] = null;    
     return $instance;
   }
 
@@ -80,6 +87,7 @@ class Widget_Title_Links {
   public function widget_update_extend ( $instance, $new_instance ) {
     $instance['title_link'] = esc_url( $new_instance['title_link'] );
     $instance['title_link_target_blank'] = !empty($new_instance['title_link_target_blank']) ? 1 : 0;
+    $instance['title_link_wrap'] = !empty($new_instance['title_link_wrap']) ? 1 : 0;
     return $instance;
   }
 
@@ -108,8 +116,19 @@ class Widget_Title_Links {
 
       if ( isset($instance['title_link']) && $instance['title_link'] ) {
         $target = $instance['title_link_target_blank'] ? ' target="_blank"' : '';
-        $params[0]['before_title'] = $params[0]['before_title'] . '<a href="' . $instance['title_link'] . '"' . $target . '>';
-        $params[0]['after_title']  = '</a>' . $params[0]['after_title'];
+
+        // Wrap everything before_title inside the link, if wrap mode is on
+        if ( isset($instance['title_link_wrap']) && $instance['title_link_wrap'] ) {
+          $params[0]['before_title'] = '<a href="' . $instance['title_link'] . '"' . $target . '>' . $params[0]['before_title'];
+          $params[0]['after_title']  = $params[0]['after_title'] . '</a>';
+        }
+
+        // Otherwise, only wrap the actual title
+        else {
+          $params[0]['before_title'] = $params[0]['before_title'] . '<a href="' . $instance['title_link'] . '"' . $target . '>';
+          $params[0]['after_title']  = '</a>' . $params[0]['after_title'];
+        }
+
       }
     }
 

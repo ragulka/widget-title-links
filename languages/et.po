@@ -4,15 +4,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Widget Title Links 1.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/widget-title-links\n"
-"POT-Creation-Date: 2014-01-03 23:03+0200\n"
-"PO-Revision-Date: 2014-01-03 23:08+0200\n"
-"Last-Translator: Illimar Tambek <illimar.tambek@gmail.com>\n"
+"POT-Creation-Date: 2014-02-07 17:16+0200\n"
+"PO-Revision-Date: 2014-02-07 17:17+0200\n"
+"Last-Translator: Illimar Tambek\n"
 "Language-Team: \n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.1\n"
+"X-Generator: Poedit 1.6.3\n"
 
 #: widget-title-links.php:49
 msgid ""
@@ -24,6 +24,10 @@ msgstr ""
 #: widget-title-links.php:54
 msgid "Open link in new window/tab"
 msgstr "Ava viide uues aknas/vahelehel"
+
+#: widget-title-links.php:59
+msgid "Make the entire title bar clickable"
+msgstr "Tee kogu pealkirja ala klikitavaks"
 
 #~ msgid "Widget Title Links"
 #~ msgstr "Mooduli pealkirja linkimine"

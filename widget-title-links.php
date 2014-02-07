@@ -106,7 +106,7 @@ class Widget_Title_Links {
       // Get settings for this instance of the widget
       $instance = $settings[substr( $id, strrpos( $id, '-' ) + 1 )];
 
-      if ( $instance['title_link'] ) {
+      if ( isset($instance['title_link']) && $instance['title_link'] ) {
         $target = $instance['title_link_target_blank'] ? ' target="_blank"' : '';
         $params[0]['before_title'] = $params[0]['before_title'] . '<a href="' . $instance['title_link'] . '"' . $target . '>';
         $params[0]['after_title']  = '</a>' . $params[0]['after_title'];

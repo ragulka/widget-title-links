@@ -3,7 +3,7 @@ Contributors: ragulka
 Tags: widgets, links
 Requires at least: 3.0
 Tested up to: 3.8.1
-Stable tag: 1.3.0
+Stable tag: 1.4.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -28,7 +28,9 @@ Works with all widgets!
 
 == Frequently Asked Questions ==
 
-None at the moment
+= Can I link the widget title to current page or post? =
+
+You can use the `widget_title_link` filter to do that.
 
 == Screenshots ==
 
@@ -36,6 +38,9 @@ None at the moment
 2. Widget title is now clickable in the sidebar
 
 == Changelog ==
+
+= 1.4.0 =
+* Introduced the `widget_title_link` filter
 
 = 1.3.0 =
 * Added option to wrap entire title bar inside the link

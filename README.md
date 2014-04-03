@@ -18,13 +18,18 @@ Works with all widgets!
 
 ###Frequently Asked Questions
 
-None at the moment
+######Can I link the widget title to current page or post?
+
+You can use the `widget_title_link` filter to do that.
 
 ###Screenshots
 
 See http://wordpress.org/plugins/widget-title-links/screenshots/
 
 ###Changelog
+
+######1.4.0
+* Introduced the `widget_title_link` filter
 
 ######1.3.0
 * Added option to wrap entire title bar inside the link

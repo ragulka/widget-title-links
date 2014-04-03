@@ -115,9 +115,10 @@ class Widget_Title_Links {
       $instance = $settings[substr( $id, strrpos( $id, '-' ) + 1 )];
 
       // Allow overriding the title link programmatically via filters
-      $link = apply_filters('widget_title_link', $instance['title_link'], $instance);
+      $link = isset($instance['title_link']) ? $instance['title_link'] : null;
+      $link = apply_filters('widget_title_link', $link, $instance);
 
-      if ( isset($link) && $link ) {
+      if ( $link ) {
         $target = $instance['title_link_target_blank'] ? ' target="_blank"' : '';
 
         // Wrap everything before_title inside the link, if wrap mode is on

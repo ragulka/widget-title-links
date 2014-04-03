@@ -114,18 +114,21 @@ class Widget_Title_Links {
       // Get settings for this instance of the widget
       $instance = $settings[substr( $id, strrpos( $id, '-' ) + 1 )];
 
-      if ( isset($instance['title_link']) && $instance['title_link'] ) {
+      // Allow overriding the title link programmatically via filters
+      $link = apply_filters('widget_title_link', $instance['title_link'], $instance);
+
+      if ( isset($link) && $link ) {
         $target = $instance['title_link_target_blank'] ? ' target="_blank"' : '';
 
         // Wrap everything before_title inside the link, if wrap mode is on
         if ( isset($instance['title_link_wrap']) && $instance['title_link_wrap'] ) {
-          $params[0]['before_title'] = '<a href="' . $instance['title_link'] . '"' . $target . '>' . $params[0]['before_title'];
+          $params[0]['before_title'] = '<a href="' . $link . '"' . $target . '>' . $params[0]['before_title'];
           $params[0]['after_title']  = $params[0]['after_title'] . '</a>';
         }
 
         // Otherwise, only wrap the actual title
         else {
-          $params[0]['before_title'] = $params[0]['before_title'] . '<a href="' . $instance['title_link'] . '"' . $target . '>';
+          $params[0]['before_title'] = $params[0]['before_title'] . '<a href="' . $link . '"' . $target . '>';
           $params[0]['after_title']  = '</a>' . $params[0]['after_title'];
         }
 

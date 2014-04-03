@@ -3,7 +3,7 @@ Contributors: ragulka
 Tags: widgets, links
 Requires at least: 3.0
 Tested up to: 3.8.1
-Stable tag: 1.4.0
+Stable tag: 1.4.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -38,6 +38,9 @@ You can use the `widget_title_link` filter to do that.
 2. Widget title is now clickable in the sidebar
 
 == Changelog ==
+
+= 1.4.1 =
+* Avoid `Undefined index` PHP Notice
 
 = 1.4.0 =
 * Introduced the `widget_title_link` filter

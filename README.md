@@ -28,6 +28,9 @@ See http://wordpress.org/plugins/widget-title-links/screenshots/
 
 ###Changelog
 
+######1.4.1
+* Avoid `Undefined index` PHP Notice
+
 ######1.4.0
 * Introduced the `widget_title_link` filter
 

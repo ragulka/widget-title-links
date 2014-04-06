@@ -1,27 +1,16 @@
 <?php
 /*
-Plugin Name: Widget Title Links
-Plugin URI: https://github.com/ragulka/widget-title-links
-Description: Add links to Wordpress widget titles.
-Version: 1.4.1
-Author: Illimar Tambek
-Author URI: https://github.com/ragulka
-License: GPL2
-
-    Copyright 2012  Illimar Tambek  (email : illimar.tambek@gmail.com)
-
-    This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License, version 2, as 
-    published by the Free Software Foundation.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program; if not, write to the Free Software
-    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+  Plugin Name: Widget Title Links
+  Plugin URI: https://github.com/ragulka/widget-title-links
+  Description: Add links to Wordpress widget titles.
+  Version: 1.4.1
+  Author: Illimar Tambek
+  Author URI: https://github.com/ragulka
+  License: GPLv2 or later
+  Text Domain: widget-title-links
+  Domain Path: /languages/
+  Requires at least: 3.6
+  Tested up to: 3.8.1  
 */
 
 class Widget_Title_Links {
@@ -34,7 +23,6 @@ class Widget_Title_Links {
     add_filter( 'widget_form_callback', array( $this, 'register_widget_title_link_field'), 10, 2 );
     add_filter( 'widget_update_callback', array( $this, 'widget_update_extend'), 10, 2 );
     add_filter( 'dynamic_sidebar_params', array( $this, 'add_link_to_widget_title'), 99, 2 );
-    
   }
 
   /**
